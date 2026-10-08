@@ -1,26 +1,9 @@
-python --version
-_______________________________
-python -m venv .venv
-./.venv/Scripts/activate  (.venv)
-
-packages:
-____________________
-
-python -m pip install Django
-
-pip install python-dotenv
-
-pip install pandas
-
-python -m pip install matplotlib
-
-python -m pip install matplotlib scikit-learn seaborn
-
-python -m pip install plotly
-
-python -m pip install google-generativeai
-
-__________________________________________________
-
-python manage.py runserver
-
+Django
+python-dotenv
+pandas
+matplotlib
+scikit-learn
+seaborn
+plotly
+google-generativeai
+gunicorn
