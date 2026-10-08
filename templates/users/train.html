@@ -1,0 +1,114 @@
+{% extends 'users/Userbase.html' %}
+
+{% block content %}
+<style>
+    .training-results {
+        background: rgba(27, 38, 59, 0.9);
+        padding: 2rem;
+        margin: 2rem auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        max-width: 800px;
+    }
+
+    .training-results h3 {
+        color: #00d4ff;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+    }
+
+    .training-results p {
+        color: #b0c4de;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+        color: #e0e0e0;
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    th {
+        background: #2a4d69;
+        color: #00d4ff;
+        font-weight: 500;
+    }
+
+    td {
+        background: rgba(27, 38, 59, 1);
+    }
+
+    tr:hover {
+        background: rgba(0, 212, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .training-results {
+            padding: 1.5rem;
+        }
+
+        .training-results h3 {
+            font-size: 1.6rem;
+        }
+
+        th, td {
+            font-size: 0.85rem;
+            padding: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .training-results h3 {
+            font-size: 1.4rem;
+        }
+
+        th, td {
+            font-size: 0.8rem;
+            padding: 8px;
+        }
+
+        .training-results p {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<div class="training-results">
+    <h3>🤖 Fraud Detection Model Training Results</h3>
+    {% if results %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Accuracy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GAN</td>
+                <td>{{ results.gan }}</td>
+            </tr>
+            <tr>
+                <td>VAE</td>
+                <td>{{ results.vae }}</td>
+            </tr>
+            <tr>
+                <td>Hybrid</td>
+                <td>{{ results.hybrid }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% else %}
+    <p>No fraud detection model training results available yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

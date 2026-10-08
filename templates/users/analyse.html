@@ -1,0 +1,15 @@
+{% extends 'users/Userbase.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h3>📊 Dataset Analysis</h3>
+  {% if shape %}
+    <p><b>Rows:</b> {{ shape.0 }} | <b>Columns:</b> {{ shape.1 }}</p>
+    {{ describe_html|safe }}
+    <img src="data:image/png;base64,{{ heatmap }}" class="img-fluid mt-4"/>
+    <h4 class="mt-4">🧠 Gemini AI Insight</h4>
+    <pre>{{ ai_insight }}</pre>
+  {% else %}
+    <p>No dataset analyzed yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
